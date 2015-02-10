@@ -53,14 +53,6 @@ class XMASCAN(object):
       src=random.randint(1 ,65535)
     else:
       src=int(self.srcp)
-    try:
-      if args.dport.split('-')[1]!=None:
-        args.dport=args.dport.split('-')[0]
-        args.pf=args.dport.split('-')[1]
-    except:
-      if args.dport==None:
-        args.dport=80
-        src=self.srcp
     TCPh=TCP(flags="FPU" ,dport=self.dstp ,sport=src)
     return TCPh
 
